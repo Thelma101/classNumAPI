@@ -18,9 +18,16 @@ const isPerfect = (num: number): boolean => {
     return sum === num;
 }
 
-const isAmrmstrong= (sum: number): boolean => {
-    return sum === sum.toString().split('').reduce((acc, curr) => 
-        acc + Math.pow(Number(curr), 3), 0);
+// const isAmrmstrong= (sum: number): boolean => {
+//     return sum === sum.toString().split('').reduce((acc, curr) => 
+//         acc + Math.pow(Number(curr), 3), 0);
+// }
+
+const isAmrmstrong = (num: nuumber): boolean => {
+    const inputs = String(num).split('');
+    const sum = inputs.reduce((prev, curr) => {
+        return prev + Math.pow(Number(curr), inputs.length);
+    })
 }
 
 console.log(isAmrmstrong(371)); // true
