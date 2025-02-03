@@ -17,3 +17,12 @@ const isPerfect = (num: number): boolean => {
     }
     return sum === num;
 }
+
+const isAmrmstrong= (sum: number): boolean => {
+    return sum === sum.toString().split('').reduce((acc, curr) => 
+        acc + Math.pow(Number(curr), 3), 0);
+}
+
+console.log(isAmrmstrong(371)); // true
+console.log(isPerfect(91)); // true
+console.log(isPrime(65)); // true
