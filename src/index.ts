@@ -1,6 +1,24 @@
-import app from './app';
+import express, {request, response} from 'express' ;
+const app = express();
 import axios from 'axios';
+import cors from 'cors';
 
+app.use(express.json());
+app.use(cors());
+
+app.get('/', async(resquest, response) => {
+    const numberParam = request.query.number;
+
+    if (!numberParam || isNaN(Number(numberParam))) {
+        return response.status(400).json({
+            number: numberParam,
+            error: 'Invalid number'
+        });
+    }
+
+    const number = Number(numberParam);
+    const properties: string[] = [];
+})
 
 const isPrime = (num: number): boolean => {
     if (num <= 1) return false;
@@ -38,8 +56,4 @@ console.log(isPerfect(91)); // true
 console.log(isPrime(65)); // true
 
 
-export default {
-    isPrime,
-    isPerfect,
-    isAmrmstrong
-}
+export default app;
