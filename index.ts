@@ -1,7 +1,6 @@
+import app from './app';
+import axios from 'axios';
 
-app.get('/', req,, res) => {
-    const numberParam = req.query.number;
-}
 
 const isPrime = (num: number): boolean => {
     if (num <= 1) return false;
@@ -37,3 +36,10 @@ const isAmrmstrong = (num: number): boolean => {
 console.log(isAmrmstrong(371)); // true
 console.log(isPerfect(91)); // true
 console.log(isPrime(65)); // true
+
+
+export default {
+    isPrime,
+    isPerfect,
+    isAmrmstrong
+}

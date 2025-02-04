@@ -17,8 +17,14 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
+app.get('/api/classify-number', (request, response) => {
+    const numberParam = request.query.number;
+})
 
 app.listen(PORT, () => {
     // console.log(`Server is running on port ${PORT}`)
     console.log(`Application Server is running on PORT: ${PORT}`)
 })
+
+
+export default app;
