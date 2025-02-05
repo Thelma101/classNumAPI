@@ -55,11 +55,15 @@ app.get('/api/classify-number', async (request, response) => {
             error: 'Invalid number',
         });
     }
-
+    if (!numberParam || isNaN(Number(numberParam))) {
+        return response.status(400).json({
+            number: numberParam,
+            error: true
+        });
+    }
     const number = Number(numberParam);
     const properties = [];
 
-    // Determine properties
     if (isPrime(number)) properties.push('prime');
     if (isPerfect(number)) properties.push('perfect');
     if (isArmstrong(number)) properties.push('armstrong');
@@ -76,10 +80,11 @@ app.get('/api/classify-number', async (request, response) => {
             is_prime: isPrime(number),
             is_perfect: isPerfect(number),
             properties,
+            // properties: isArmstrong(properties),
             digit_sum: digitSum(number),
             fun_fact: funFact,
         };
-
+        console.log(responseOutput);
         response.status(200).json(responseOutput);
     } catch (error) {
         console.error('Error fetching fun fact:', error);
