@@ -1,10 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
-const dotenv = require('dotenv');
+import express from 'express';
+import axios from 'axios';
+import cors from 'cors';
 
-dotenv.config();
-const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -50,6 +47,13 @@ const digitSum = (num) => {
 // API endpoint
 app.get('/api/classify-number', async (request, response) => {
     const numberParam = request.query.number;
+
+    // if (!numberParam || isNaN(Number(numberParam))) {
+    //     return response.status(400).json({
+    //         number: numberParam,
+    //         error: 'Invalid number',
+    //     });
+    // }
     if (!numberParam || isNaN(Number(numberParam))) {
         return response.status(400).json({
             number: numberParam,
@@ -89,6 +93,4 @@ app.get('/api/classify-number', async (request, response) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Application Server is running on PORT: ${PORT}`);
-});
+export default app;
