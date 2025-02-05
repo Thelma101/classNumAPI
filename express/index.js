@@ -48,13 +48,12 @@ const digitSum = (num) => {
 app.get('/api/classify-number', async (request, response) => {
     const numberParam = request.query.number;
 
-    // Validate input
-    if (!numberParam || isNaN(Number(numberParam))) {
-        return response.status(400).json({
-            number: numberParam,
-            error: 'Invalid number',
-        });
-    }
+    // if (!numberParam || isNaN(Number(numberParam))) {
+    //     return response.status(400).json({
+    //         number: numberParam,
+    //         error: 'Invalid number',
+    //     });
+    // }
     if (!numberParam || isNaN(Number(numberParam))) {
         return response.status(400).json({
             number: numberParam,
