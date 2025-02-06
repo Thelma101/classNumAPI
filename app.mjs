@@ -18,7 +18,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3009;
 console.log(PORT);
 
 // Helper function to check if a number is prime
